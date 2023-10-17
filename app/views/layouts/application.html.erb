@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cryptocurrencies Web App</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <%= render "layouts/header" %>
+
+    <div class="text-center">
+      <% if notice %>
+        <p class="alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert-warning"><%= alert %></p>
+      <% end %>
+    </div>
+
+    <main style="padding: 10px;">
+      <%= yield %>
+    </main>
+
+    <%= render "layouts/footer" %>
+
+  </body>
+
+</html>

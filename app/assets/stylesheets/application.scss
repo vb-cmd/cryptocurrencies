@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #61d000;
+    color: #085609;
+}
+
+.alert-warning {
+    background-color: #fed9d6;
+    border-color: #b60000;
+    color: #650606;
+}
+
+.sign-out-link {
+    color: #e20000;
+}
+
+.row-green-change {
+    animation: 3s linear 0s 1 normal forwards running GreenFrames;
+}
+
+.row-red-change {
+    animation: 3s linear 0s 1 normal forwards running RedFrames;
+}
+
+@keyframes GreenFrames {
+    0% {
+        color: #17f607;
+    }
+    50% {
+        color: #25a41c;
+    }
+
+    100% {
+        color: var(--bs-body-color);
+    }
+}
+
+@keyframes RedFrames {
+    0% {
+        color: #FF1403;
+    }
+    50% {
+        color: #983e38;
+    }
+
+    100% {
+        color: var(--bs-body-color);
+    }
+}

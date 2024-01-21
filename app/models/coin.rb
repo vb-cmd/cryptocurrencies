@@ -34,18 +34,10 @@ class Coin < ApplicationRecord
            supply: coin_hash['supply'])
   end
 
-  def any_numerics_outdated_from_coincap?(coin_hash)
-    (market_cap.to_s != coin_hash['marketCapUsd']) &&
-      (volume_24h.to_s != coin_hash['volumeUsd24Hr']) &&
-      (price.to_s != coin_hash['priceUsd']) &&
-      (change_24h.to_s != coin_hash['changePercent24Hr']) &&
-      (supply.to_s != coin_hash['supply'])
-  end
-
   private
 
   def send_message_to_room
-    PriceChangeChannel.broadcast_to(PriceChangeChannel::GLOBAL_NAME,
+    PriceChangeChannel.broadcast_to(PriceChangeChannel::ALL,
                                     {
                                       short_name:,
                                       market_cap:,

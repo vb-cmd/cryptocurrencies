@@ -1,8 +1,8 @@
 class PriceChangeChannel < ApplicationCable::Channel
-  GLOBAL_NAME = 'all'
+  ALL = 'all'
 
   def subscribed
-    stream_from "price_change:#{GLOBAL_NAME}"
+    stream_from "price_change:#{ALL}"
   end
 
   def unsubscribed; end

@@ -1,6 +1,14 @@
 if Rails.const_defined?('Server')
   scheduler = Rufus::Scheduler.new
 
+  def can_update_coin?(coin, coin_hash)
+    (coin.market_cap.to_s != coin_hash['marketCapUsd']) &&
+      (coin.volume_24h.to_s != coin_hash['volumeUsd24Hr']) &&
+      (coin.price.to_s != coin_hash['priceUsd']) &&
+      (coin.change_24h.to_s != coin_hash['changePercent24Hr']) &&
+      (coin.supply.to_s != coin_hash['supply'])
+  end
+
   # Update information about coins every 10 seconds
   scheduler.every '10s' do
     json_hash = CoincapService.cryptocurrencies
@@ -15,7 +23,7 @@ if Rails.const_defined?('Server')
         next
       end
 
-      coin.update_numerics_from_coincap(coin_hash) if coin.any_numerics_outdated_from_coincap?(coin_hash)
+      coin.update_numerics_from_coincap(coin_hash) if can_update_coin?(coin, coin_hash)
     end
   rescue StandardError => e
     Rails.logger.error "#{e.message} at #{Time.now}"

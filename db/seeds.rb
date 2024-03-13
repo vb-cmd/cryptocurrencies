@@ -1,24 +1,20 @@
-[User, Coin, CoinHistory].each(&:delete_all)
+[Coin, CoinHistory].each(&:delete_all)
 
-if Rails.env.development?
-  puts 'Create user admin'
-  User.create(email: 'admin@admin.com', password: 'password')
-end
-
-CoincapService.cryptocurrencies.each do |coin|
-  Coin.create_and_update_from_coincap(coin)
-  puts "Created coin: #{coin['id']}"
+coins = CoincapService.cryptocurrencies
+coins.each do |coin_hash|
+  CoincapService.create_or_update_coin(coin_hash)
+  puts "Created a coin: #{coin_hash['id']}"
 end
 
 puts('-' * 100)
 
-Coin.all.each do |coin|
-  puts "Fetch coin '#{coin.short_name}' histories from Coincap at #{Time.now}"
-  json = CoincapService.cryptocurrency_histories(coin.short_name)
+Coin.all.each_with_index do |coin, index|
+  puts "#{index}. Fetch coin '#{coin.short_name}' histories from Coincap at #{Time.now}"
+  histories_hash = CoincapService.cryptocurrency_histories(coin.short_name)
 
   puts "Begin to add histories for #{coin.short_name} at #{Time.now}"
-  json.each do |history|
-    coin.histories.create(price: history['priceUsd'], date: history['date'])
-  end
-  puts "End to add histories for #{coin.short_name} at #{Time.now}"
+
+  CoincapService.create_coin_histories(coin, histories_hash)
+
+  puts "End to added histories for #{coin.short_name} at #{Time.now}"
 end

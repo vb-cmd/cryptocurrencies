@@ -5,9 +5,7 @@ class CreateCoins < ActiveRecord::Migration[7.0]
       t.string :symbol
       t.string :short_name, null: false, unique: true
       t.string :full_name
-      t.decimal :supply
       t.decimal :market_cap
-      t.decimal :volume_24h
       t.decimal :price
       t.decimal :change_24h
 

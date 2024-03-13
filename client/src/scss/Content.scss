@@ -1,0 +1,12 @@
+#content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1400px;
+    width: 100%;
+    padding: 10px;
+    padding-top: 50px;
+}

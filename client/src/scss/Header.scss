@@ -1,0 +1,102 @@
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: #0f0d0e;
+    height: 500px;
+
+    >.logo {
+        font-size: 45px;
+        font-weight: bolder;
+        font-family: "Protest Strike", sans-serif;
+        text-transform: uppercase;
+        color: #fcba28;
+        text-shadow: 1px 1px 1px #000,
+            -3px 3px 0px #ed203d,
+            -5px 5px 0px #13ab93;
+    }
+
+    >.intro {
+        font-size: 20px;
+    }
+
+    >.search {
+        display: flex;
+        justify-content: center;
+        gap: 2px;
+        height: 40px;
+        width: 100%;
+
+        >.search-submit {
+            max-width: 120px;
+            min-width: 60px;
+            width: 100%;
+            height: 100%;
+            border-radius: 0 5px 5px 0;
+            border: none;
+            background-color: rgb(252, 186, 40);
+            color: #0f0d0e;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(165, 124, 0);
+            }
+        }
+
+        >.search-input {
+            padding-left: 10px;
+            max-width: 300px;
+            min-width: 60px;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px 0 0 5px;
+            border: none;
+            background-color: rgb(35, 31, 32);
+            color: rgb(249, 244, 218);
+
+            &::placeholder {
+                color: rgb(160, 149, 109);
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+@keyframes text-shadow {
+    0% {
+        text-shadow: none;
+    }
+
+    100% {
+        text-shadow: 1px 1px 1px #000,
+            -3px 3px 0px #ed203d,
+            -5px 5px 0px #13ab93;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #header {
+        >.logo {
+            font-size: 30px;
+        }
+
+        >.search {
+            >.search-submit {
+                max-width: 80px;
+            }
+
+            >.search-input {
+                max-width: 200px;
+            }
+        }
+
+        >.intro {
+            font-size: 15px;
+        }
+    }
+}

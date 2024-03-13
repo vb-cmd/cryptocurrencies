@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Protest+Strike&display=swap);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: #0f0d0e;
+    font-family: 'Outfit', sans-serif;
+    color: rgb(249, 244, 218);
+}
+
+a {
+    color: rgb(249, 244, 218);
+
+    &:hover {
+        color: rgb(252, 186, 40)
+    }
+}
+
+.btn {
+    background-color: rgb(252, 186, 40);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 17px;
+
+    &:hover {
+        background-color: rgb(165, 124, 0);
+    }
+}

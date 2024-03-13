@@ -4,16 +4,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.8"
+gem "rails", "~> 7.1.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem "sqlite3"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -28,7 +28,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-gem "redis", "~> 4.0"
+gem "redis"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+ gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rack-cors", "~> 2.0"
 end
 
 group :development do
@@ -70,18 +71,15 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "devise", "~> 4.9"
-
 gem "erb-formatter", "~> 0.4.3", :group => :development
 
 gem "bootstrap", "~> 5.3.2"
 
-gem "sassc-rails", "~> 2.1"
-
 gem "coincap", "~> 0.2.3"
-
-gem "solargraph-rails", "~> 1.1", :group => :development
 
 gem "rufus-scheduler", "~> 3.9"
 
 gem "chartkick", "~> 5.0"
+
+gem "kaminari", "~> 1.2"
+

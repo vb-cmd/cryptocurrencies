@@ -4,7 +4,6 @@ class CreateCoinHistories < ActiveRecord::Migration[7.0]
       t.references :coin, unique: true
       t.decimal :price
       t.datetime :date
-      
     end
   end
 end

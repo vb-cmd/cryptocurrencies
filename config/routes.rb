@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
-  root 'coins#index'
-
-  # api
-  namespace :api do
+  # API
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
       namespace :coin do
         resources :coins, only: %i[index] do
-          resources :histories, only: %i[index]
+          resource :histories, only: %i[show]
         end
       end
     end
   end
-
-  # devise
-  devise_for :users
 end

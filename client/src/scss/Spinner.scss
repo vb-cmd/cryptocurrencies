@@ -1,0 +1,26 @@
+.spinner {
+    --size: 50px;
+    background-color: rgb(42, 42, 42);
+    margin: auto;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border-block: 1px solid rgb(252, 186, 40);
+    animation: rotate 2s ease infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        border-block: 1px solid rgb(254, 224, 161);
+    }
+    
+    50% {
+        transform: rotate(360deg);
+        border-block: 26px solid rgb(255, 174, 0);
+    }
+    100% {
+        transform: rotate(0deg);
+        border-block: 1px solid rgb(252, 186, 40);
+    }
+}

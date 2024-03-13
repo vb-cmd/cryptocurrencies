@@ -10,16 +10,14 @@ consumer.subscriptions.create({ channel: 'PriceChangeChannel', room: "all" },
   {
     // Called when there's incoming data on the websocket for this channel
     received(data) {
-      const target = document.getElementById(`row-change-${data.short_name}`)
+      const target = document.getElementById(`coin-${data.short_name}`)
 
-      if (target != null) {
-        const targetChildren = target.getElementsByTagName('td')
+      if (target == null) return;
 
-        targetChildren[2].innerText = data.supply;
-        targetChildren[3].innerText = data.market_cap;
-        targetChildren[4].innerText = data.volume_24h;
-        checkChange(targetChildren[5], data.price);
-        checkChange(targetChildren[6], data.change_24h, true);
-      }
+      const targetChildren = target.getElementsByTagName('td')
+
+      checkChange(targetChildren[3], data.price);
+      checkChange(targetChildren[4], data.change_24h, true);
+
     }
   });
